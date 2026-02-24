@@ -36,23 +36,15 @@ button:disabled{background:gray;}
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <script>
-// حماية الدخول قوية باستخدام localStorage
-const allowed = localStorage.getItem("adFinished");
-
-if(!allowed){
-    // مش داخل بعد الإعلان → يرجع على Linkjust
-    window.location.href = "https://linkjust.com/codekemo";
-}
-
-// Firebase setup
 firebase.initializeApp({
-  apiKey: "AIzaSyAUc2cH9gVE7RECiW19XQxVH96sFE",
+  apiKey: "AIzaSyAUc2cH9gVE7RECiW19XQXjNZQxVH96sFE",
   authDomain: "zezo-59a8d.firebaseapp.com",
   databaseURL: "https://zezo-59a8d-default-rtdb.firebaseio.com",
   projectId: "zezo-59a8d"
 });
 
 const db = firebase.database();
+
 let waitTime = 15;
 let liveCode = "----";
 
@@ -63,7 +55,6 @@ db.ref("settings/mainCode").on("value", snapshot=>{
   }
 });
 
-// مؤقتات الخطوة 1 و 2
 function startTimer(timerId, buttonId){
   let time = waitTime;
   let timerText = document.getElementById(timerId);
@@ -89,8 +80,6 @@ document.getElementById("next1").onclick = function(){
 }
 
 document.getElementById("getCodeBtn").onclick = function(){
-  // عند الضغط بعد الإعلان → يسمح بالدخول
-  localStorage.setItem("adFinished", true);
   document.getElementById("codeBox").style.display="block";
   document.getElementById("activationCode").innerText = liveCode;
 }
