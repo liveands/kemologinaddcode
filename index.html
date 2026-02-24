@@ -31,6 +31,14 @@ button:disabled{background:gray;}
   <p id="activationCode"></p>
 </div>
 
+<!-- حماية الدخول -->
+<script>
+if(document.referrer.indexOf("linkjust.com") === -1){
+    // لو مش جاي من linkjust، يرجع على صفحة الإعلان
+    window.location.href = "https://linkjust.com/codekemo";
+}
+</script>
+
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
